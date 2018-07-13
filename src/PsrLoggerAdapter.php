@@ -2,9 +2,12 @@
 
 namespace alexeevdv\yii;
 
-use Psr\Log\AbstractLogger;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerTrait;
 use Psr\Log\LogLevel;
+use yii\base\BaseObject;
+use yii\base\InvalidConfigException;
+use yii\di\Instance;
 use yii\helpers\ArrayHelper;
 use yii\log\Logger;
 
@@ -12,22 +15,24 @@ use yii\log\Logger;
  * Class PsrLoggerAdapter
  * @package alexeevdv\yii
  */
-class PsrLoggerAdapter extends AbstractLogger implements LoggerInterface
+class PsrLoggerAdapter extends BaseObject implements LoggerInterface
 {
-    /**
-     * @var Logger
-     */
-    private $logger;
+    use LoggerTrait;
 
     /**
      * @var string
      */
-    private $category;
+    public $category = 'application';
+
+    /**
+     * @var string|array|Logger
+     */
+    public $logger = Logger::class;
 
     /**
      * @var array
      */
-    private $errorLevelMap = [
+    public $errorLevelMap = [
         LogLevel::EMERGENCY => Logger::LEVEL_ERROR,
         LogLevel::ALERT => Logger::LEVEL_ERROR,
         LogLevel::CRITICAL => Logger::LEVEL_ERROR,
@@ -39,14 +44,13 @@ class PsrLoggerAdapter extends AbstractLogger implements LoggerInterface
     ];
 
     /**
-     * PsrLoggerAdapter constructor.
-     * @param Logger $logger
-     * @param string $category
+     * @inheritdoc
+     * @throws InvalidConfigException
      */
-    public function __construct(Logger $logger, $category = 'application')
+    public function init()
     {
-        $this->logger = $logger;
-        $this->category = $category;
+        parent::init();
+        $this->logger = Instance::ensure($this->logger, Logger::class);
     }
 
     /**

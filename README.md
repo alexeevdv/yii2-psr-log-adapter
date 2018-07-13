@@ -24,8 +24,6 @@ to the ```require``` section of your `composer.json` file.
 
 Lets assume some third party code
 ```
-<?php
-
 use Psr\Log\LoggerInterface;
 
 class ThirdParty 
@@ -43,7 +41,7 @@ class ThirdParty
 ```
 use alexeevdv\yii\PsrLoggerAdapter;
 
-$logger = new PsrLogAdapter(Yii::$app->log->logger, 'my-category');
+$logger = new PsrLoggerAdapter(['category' => 'my-category']);
 $thirdParty = new ThirdParty($logger);
 ```
 
@@ -54,7 +52,10 @@ $thirdParty = new ThirdParty($logger);
     //...
     'container' => [
         'definitions' => [
-            \Psr\LoLoggerInterface::class => \alexeevdv\yii\PsrLoggerAdapter::class,
+            \Psr\LoLoggerInterface::class => [
+                'class' => \alexeevdv\yii\PsrLoggerAdapter::class,
+                'category' => 'my-category',
+            ],
         ],
     ],
     //...
@@ -63,4 +64,16 @@ $thirdParty = new ThirdParty($logger);
 // Lest create third party object now
 // Logger adapter will be injected automagically
 $thirdParty = Yii::createObject(ThirdParty::class);
+```
+
+## Configuration
+By default yii logger is taken from DI container but you can specify your own if you wish.
+
+```
+use alexeevdv\yii\PsrLoggerAdapter;
+
+$logger = new PsrLoggerAdapter([
+    'logger' => 'mylogger', // logger configuration here. Anything that can be passed to \yii\di\Instance::ensure
+    'category' => 'my-category',
+]);
 ```
