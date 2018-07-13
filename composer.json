@@ -1,0 +1,24 @@
+{
+    "name": "alexeevdv/yii2-psr-log-adapter",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry V. Alexeev",
+            "email": "mail@alexeevdv.ru"
+        }
+    ],
+    "require": {
+        "psr/log": "~1.0.0",
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"alexeevdv\\yii\\": "src"}
+    }
+}
