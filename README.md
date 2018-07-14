@@ -1,5 +1,13 @@
 # PSR3 log adapter for Yii2 logger
 
+[![Build Status](https://travis-ci.org/alexeevdv/yii2-psr-log-adapter.svg?branch=master)](https://travis-ci.org/alexeevdv/yii2-psr-log-adapter) 
+[![codecov](https://codecov.io/gh/alexeevdv/yii2-psr-log-adapter/branch/master/graph/badge.svg)](https://codecov.io/gh/alexeevdv/yii2-psr-log-adapter)
+![PHP 5.6](https://img.shields.io/badge/PHP-5.6-green.svg)
+![PHP 7.0](https://img.shields.io/badge/PHP-7.0-green.svg) 
+![PHP 7.1](https://img.shields.io/badge/PHP-7.1-green.svg) 
+![PHP 7.2](https://img.shields.io/badge/PHP-7.2-green.svg)
+
+
 Yii2 logger is not PSR3 compatible, therefore when you need logger functionality in third party library (which uses PSR3 logger interface), this package may save your time.
 
 ## Installation
