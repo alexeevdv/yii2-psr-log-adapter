@@ -60,7 +60,7 @@ $thirdParty = new ThirdParty($logger);
     //...
     'container' => [
         'definitions' => [
-            \Psr\LoLoggerInterface::class => [
+            \Psr\Log\LoggerInterface::class => [
                 'class' => \alexeevdv\yii\PsrLoggerAdapter::class,
                 'category' => 'my-category',
             ],
