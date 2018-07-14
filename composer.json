@@ -20,5 +20,9 @@
     ],
     "autoload": {
         "psr-4": {"alexeevdv\\yii\\": "src"}
+    },
+    "require-dev": {
+        "codeception/codeception": "^2.4",
+        "yiisoft/yii2-coding-standards": "^2.0"
     }
 }
