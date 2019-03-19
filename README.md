@@ -6,6 +6,7 @@
 ![PHP 7.0](https://img.shields.io/badge/PHP-7.0-green.svg) 
 ![PHP 7.1](https://img.shields.io/badge/PHP-7.1-green.svg) 
 ![PHP 7.2](https://img.shields.io/badge/PHP-7.2-green.svg)
+![PHP 7.3](https://img.shields.io/badge/PHP-7.3-green.svg)
 
 
 Yii2 logger is not PSR3 compatible, therefore when you need logger functionality in third party library (which uses PSR3 logger interface), this package may save your time.
@@ -17,13 +18,13 @@ The preferred way to install this extension is through [composer](https://getcom
 Either run
 
 ```bash
-$ php composer.phar require alexeevdv/yii2-psr-log-adapter "~1.0"
+$ php composer.phar require alexeevdv/yii2-psr-log-adapter
 ```
 
 or add
 
 ```
-"alexeevdv/yii2-psr-log-adapter": "~1.0"
+"alexeevdv/yii2-psr-log-adapter": "^1.0"
 ```
 
 to the ```require``` section of your `composer.json` file.

@@ -8,9 +8,11 @@
             "email": "mail@alexeevdv.ru"
         }
     ],
-    "require": {
-        "psr/log": "~1.0.0",
-        "yiisoft/yii2": "~2.0.0"
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {"alexeevdv\\yii\\": "src"}
     },
     "repositories": [
         {
@@ -18,8 +20,9 @@
             "url": "https://asset-packagist.org"
         }
     ],
-    "autoload": {
-        "psr-4": {"alexeevdv\\yii\\": "src"}
+    "require": {
+        "psr/log": "^1.0",
+        "yiisoft/yii2": "^2.0"
     },
     "require-dev": {
         "codeception/codeception": "^2.4",
